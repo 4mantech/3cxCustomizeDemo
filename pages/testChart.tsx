@@ -1,6 +1,7 @@
 import { Chart } from "react-google-charts";
 import Box from "@mui/material/Box";
 import Layout from "../components/layout";
+import Grid from "@mui/material/Grid";
 
 export const data = [
   ["Task", "Hours per Day"],
@@ -10,6 +11,7 @@ export const data = [
   ["เด้", 10],
   ["เนโร", 1],
 ];
+
 export const data2 = [
   ["Task", "Hours per Day"],
   ["เนโร", 11],
@@ -37,6 +39,8 @@ const demoChart = () => {
             width: 500,
             height: 500,
             marginTop: 2,
+            justifyContent: "center",
+            alignItems: "center",
             backgroundColor: "green.dark",
             opacity: [0.9, 0.8, 0.7],
             "&:hover": {
