@@ -31,50 +31,48 @@ export const options2 = {
 const demoChart = () => {
   return (
     <div>
-      <Layout>
-        <Box
-          sx={{
-            width: 500,
-            height: 500,
-            marginTop: 2,
-            backgroundColor: "green.dark",
-            opacity: [0.9, 0.8, 0.7],
-            "&:hover": {
-              backgroundColor: "primary.main",
-              opacity: [1],
-            },
-          }}
-        >
-          <Chart
-            chartType="PieChart"
-            data={data}
-            options={options}
-            width={"120%"}
-            height={"600px"}
-          />
-        </Box>
-        <Box
-          sx={{
-            width: 500,
-            height: 500,
-            marginTop: 2,
-            backgroundColor: "green.dark",
-            opacity: [0.9, 0.8, 0.7],
-            "&:hover": {
-              backgroundColor: "primary.main",
-              opacity: [1],
-            },
-          }}
-        >
-          <Chart
-            chartType="PieChart"
-            data={data2}
-            options={options2}
-            width={"120%"}
-            height={"600px"}
-          />
-        </Box>
-      </Layout>
+      <Box
+        sx={{
+          width: 400,
+          border: 2,
+          height: 400,
+          marginTop: 2,
+          // backgroundColor: "primary.dark",
+          "&:hover": {
+            backgroundColor: "primary.main",
+            // opacity: [0.9, 0.8, 0.7],
+          },
+        }}
+      >
+        <Chart
+          chartType="PieChart"
+          data={data}
+          options={options}
+          width={"100%"}
+          height={"400px"}
+        />
+      </Box>
+      <Box
+        sx={{
+          width: 400,
+          border: 2,
+          height: 400,
+          marginTop: 2,
+          // backgroundColor: "primary.dark",
+          "&:hover": {
+            backgroundColor: "primary.main",
+            // opacity: [0.9, 0.8, 0.7],
+          },
+        }}
+      >
+        <Chart
+          chartType="PieChart"
+          data={data2}
+          options={options2}
+          width={"100%"}
+          height={"400px"}
+        />
+      </Box>
     </div>
   );
 };
