@@ -4,7 +4,11 @@ import { useTranslation } from "react-i18next";
 const Home: NextPage = () => {
   const { t } = useTranslation();
 
-  return <></>;
+  return (
+    <>
+      <p>{t("swiftlet")}</p>
+    </>
+  );
 };
 
 export default Home;

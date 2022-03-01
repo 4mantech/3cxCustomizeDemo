@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,17 +11,18 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
-const pages = ["Dashboard", "Products", "Pricing", "contact"];
+const pages = ["Dashboard", "Products"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const AppHead = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const router = useRouter();
+  const { t } = useTranslation();
+
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -30,8 +31,10 @@ const AppHead = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (page: any) => {
-    console.log(page);
+  const handleCloseNavMenu = (e: any) => {
+    const path = t(`router.${e.target.outerText}`);
+    router.replace(`/${path}`);
+    console.log("test");
     setAnchorElNav(null);
   };
 
@@ -82,7 +85,12 @@ const AppHead = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu(page)}>
+                <MenuItem
+                  key={page}
+                  onClick={(e) => {
+                    handleCloseNavMenu(e);
+                  }}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
